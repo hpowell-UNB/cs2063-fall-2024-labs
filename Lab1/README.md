@@ -76,9 +76,12 @@ _Using Android x86 Lab OS_
 
 The lab computers do not have an Android Emulator installed by default.  They can be accessed through another virtual machine.
 
-1. From the Linux machine select Applications → FCS VMs → Android OS VM
-2. Once the VM is launched follow the instructions as shown on the desktop of the Android Studio VM to connect to it
-3. You should be given the option to connect the debugger to the emulator
+1. Launch Android Studio VM 
+2. Launch Android OS VM
+3. In the launch Android studio VM open a terminal
+4. Enter the command 'adb connect 10.0.2.4:5555'
+	* The terminal should respond with 'connected to 10.0.2.4:5555'
+	* Android studio should now be able to find the emulated device. 
 
 NOTE:
 * This VM is slower than an Android Emulator but does allow us to simulate things like low battery state and receiving a text message, which this VM doesn't
