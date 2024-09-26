@@ -103,9 +103,11 @@ NOTES:
 
 **Task 3**
 
-1. Programmatically capture a reference to the back ```Button``` layout component from ```ExtrernalActivityCalls``` by assigning it a [setOnClickListener()](http://developer.android.com/reference/android/widget/Button.html) event inside the ```onCreate()``` method.
-   * Take a look at the linked documentation or how the intent was defined in ```MainActivity``` for reference.
+With the "Return" button action listener in place we need to give it some Intent functionality.
 
+1. Construct an [Intent](http://developer.android.com/guide/components/intents-filters.html#ExampleExplicit) inside the ```setOnClickListener()``` and use it to start the ```MainActivity```
+  * Take a look at the linked documentation or how the intent was defined in ```MainActivity``` for reference.
+  
 **Task 4**
 
 Let's demonstrate this by announcing our application’s ```Intent``` to send an email.
@@ -198,19 +200,24 @@ With the Intents implemented run the application and perform the following steps
 3. From within the email app attach the photo you just took as an attachment
 4. Open the email and take a screenshot of it
 
-**Task 111**
+**Task 11**
 
 Restart your application and perform the following steps:
 1. From the ```MainActivity``` click the Start ```Button```
 2. Click the Back button and then Start again
 3. Do this a few times
 4. Now begin using the device back button to traverse the task backstack.
+5. Write a short description of your observations and relate this to what you learned about the task backstack in the previous lab
+
+**Task 12**
+
+1. Modify the implementation of the ```ExternalActivityCalls```'s back button to behave similarly to the device's soft-key back button
+2. Retry the steps in task 11
 
 **Writeup Task**
 
-1. Write a short description of your observations and relate this to what you learned about the task backstack in the previous lab
-2. Describe how you could modify the implementation of your ```Activity```'s back button to behave similarly to the device's soft-key back button
-3. Add the screenshot of the email sent by your app
+1. Include details of the observations from Task 11
+2. Add the screenshot of the email sent by your app
 
 **Deliverables**
 
