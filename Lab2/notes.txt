@@ -1,1 +1,0 @@
-Watch out for startActivityForResult as it has been deprecated
