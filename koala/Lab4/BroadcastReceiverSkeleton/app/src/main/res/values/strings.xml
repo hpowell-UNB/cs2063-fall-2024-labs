@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Broadcast Receivers Lab</string>
+    <string name="button_text">Take a photo</string>
+    <string name="channel_name">Lab 4 Notification Channel</string>
+    <string name="channel_description">Notification channel for AlarmReceiver</string>
+    <string name="notification_title">Notification Alert.  Click Me.</string>
+    <string name="notification_text">Reminder to take a photo</string>
+</resources>
