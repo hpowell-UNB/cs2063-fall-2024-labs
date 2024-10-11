@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         cameraButton.setOnClickListener { dispatchTakePhotoIntent() }
 
         // Ensure the permissions are set for posting notifications
+        // TODO: Uncomment to enable permissions check
         // checkNotificationPermissions()
 
         // Register the activity listener

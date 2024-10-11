@@ -69,7 +69,9 @@ NOTE:
 
 **Task 2**
 
-With the Broadcast Receiver in place let's go back and set an alarm.  The alarm should be set to repeat roughly every 60 seconds and should wake the device.
+With the Broadcast Receiver in place let's go back and set an alarm.  Take note of the following requirements for the alarm before proceeding:
+* It needs to be a [repeating alarm](https://developer.android.com/develop/background-work/services/alarms/schedule#repeating) set to trigger roughly every 60 seconds.
+* When the alarm is triggered is should wake up the device.  Have a look at the different [alarm types](https://developer.android.com/training/scheduling/alarms.html#type) for reference. 
 
 1. Replace the _TODO_ statement in the ```AlarmReceiver```'s ```onReceive``` method with a ```Log``` message in here for now
 	* This method will be called when the ```BroadcastReceiver``` receives a broadcast
@@ -78,11 +80,10 @@ With the Broadcast Receiver in place let's go back and set an alarm.  The alarm 
 3. Edit the ```AndroidManifest.xml``` file to declare the [appropriate exact alarm permission](https://developer.android.com/training/scheduling/alarms.html#exact-permission-declare)
   * For this lab exercise ```android.permission.SCHEDULE_EXACT_ALARM``` will be sufficient
 
-3. Update the ```MainActivity.onCreate``` method to set an alarm
+3. With the permissions in place we need to create an alarm.  Update the ```MainActivity.onCreate``` method to create a repeating alarm
+	* For the attributes for the alarm refer to the alarm requirements at the start of the task description 
 	* The action of the alarm should be to start ```AlarmReceiver```
-	* The following documentation should help here
-		* [Alarms](https://developer.android.com/training/scheduling/alarms.html#type) 
-		* [PendingIntent](http://developer.android.com/reference/android/app/PendingIntent.html)
+	* The documentation on [PendingIntent](http://developer.android.com/reference/android/app/PendingIntent.html) should help here
 	* NOTE:
 		* We would typically use alarms for much longer durations
 			* For example: for our daily photo app we might set the alarm to run once per day
@@ -114,10 +115,13 @@ The first step will be to ensure that the correct permissions are in place.
 With the permissions in place let's add the app notifications.
 
 1. Open the ```AlarmReceiver``` class and update the implementation for the ```onReceive``` function to instantiate the ```NotificationHelper``` class and call the empty ```handleNotification``` function.
-	* Be sure to pass in the context
+	* __HINT__: Take note of the function signature.  Be sure to pass in the context object provided in the onReceive function.
 
 1. Open the ```NotificationUtils``` class and complete the implementation for the ```handleNotification``` method by adding a notification.
 	* Follow the _*Create a basic notification*_ section in the [simple notification guide](https://developer.android.com/develop/ui/views/notifications/build-notification#simple-notification) for this
+		* NOTES: 
+			* The code example in this guide assumes this will be added directly into an Activity class.
+			* Any references to context specific functions (for example: getSystemService) needs to be called from the __context__ object passed into the function.
 	* The tap action of this notification will be to start ```MainActivity``` (i.e. clicking on the notification takes the user back to the app)
 		* Constant values for the channel ID and notification ID can be found in the ```Constants``` file
 		* Additional notes for building the notification channel:
@@ -128,7 +132,6 @@ With the permissions in place let's add the app notifications.
 			* Set the small icon to ```R.mipmap.ic_launcher```
 			* String values for the notifications can be found in the __strings.xml__ resource file
 		* When you come to the step to [show the notification](https://developer.android.com/develop/ui/views/notifications/build-notification#notify) uncomment the code for ```showNotification``` as this has resolved class loading issues
-	* **TIP:** The methods to create the intents require a context.  Recall that broadcast receivers do not have direct access to the context.  For this have a look at the signature for the _onRecieve_ function.
 
 **NOTES:**
 * Android 8.0 (API level 26) introduced a few updates to the way Notifications are handled were added:
