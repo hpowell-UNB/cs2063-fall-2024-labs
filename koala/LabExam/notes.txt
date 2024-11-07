@@ -1,0 +1,8 @@
+For next time: Perhaps add a different UI element instead of Toast; the 
+error message states use Looper.prepare() to solve the issue which is 
+not what is needed if there is another UI element being updated.
+
+Is it possible to determine if a method is being run in a separate 
+thread and not the main UI thread?
+
+Load data comment in LoadDataTask - specify using JsonUtils
