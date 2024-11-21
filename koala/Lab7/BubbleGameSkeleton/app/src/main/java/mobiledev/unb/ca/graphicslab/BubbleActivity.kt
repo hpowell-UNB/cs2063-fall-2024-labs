@@ -48,7 +48,13 @@ class BubbleActivity : Activity(), BubbleListener {
         super.onResume()
 
         initSound(applicationContext)
-        setupGestureDetector()
+
+        // Set a SoundPool OnLoadCompletedListener that calls setupGestureDetector()
+        soundPool!!.setOnLoadCompleteListener { _: SoundPool?, _: Int, status: Int ->
+            // TODO
+            //   If the status returns 0 call setupGestureListener
+            //   Else log a message that the sound could not be loaded and finish
+        }
     }
 
     // Implementation of the listener interface function
@@ -176,6 +182,7 @@ class BubbleActivity : Activity(), BubbleListener {
     }
 
     companion object {
+        private val TAG = BubbleActivity::class.java.simpleName
         private const val STREAM_TYPE = AudioManager.STREAM_MUSIC
         private const val SOUND_POOL_MAX_STREAMS = 10
     }
