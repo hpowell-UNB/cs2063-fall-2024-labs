@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Compose List Lab</string>
+    <string name="lbl_go_back">Back to course list</string>
+</resources>
